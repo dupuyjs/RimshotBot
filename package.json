@@ -1,0 +1,15 @@
+{
+  "name": "rimshot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "author": "Jean-Sébastien Dupuy",
+  "license": "MIT",
+  "dependencies": {
+    "botbuilder": "^3.9.1",
+    "restify": "^5.2.0"
+  }
+}
