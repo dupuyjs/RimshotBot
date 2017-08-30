@@ -9,7 +9,9 @@
   "author": "Jean-Sébastien Dupuy",
   "license": "MIT",
   "dependencies": {
+    "applicationinsights": "^0.21.0",
     "botbuilder": "^3.9.1",
+    "dotenv-extended": "^2.0.1",
     "restify": "^5.2.0"
   }
 }
