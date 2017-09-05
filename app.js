@@ -44,7 +44,8 @@ bot.dialog('HelpDialog', function (session) {
             ]);
     
         var msg = new builder.Message(session)
-            .speak(speak(session, "I'm roller, the dice rolling bot. You can say 'roll some dice' or play one of the games I know how to play."))
+            .text('Test')
+            .speak('This is a test')
             .addAttachment(card)
             .inputHint(builder.InputHint.acceptingInput);
     
