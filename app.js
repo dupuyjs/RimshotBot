@@ -44,7 +44,7 @@ bot.dialog('HelpDialog', function (session) {
             ]);
     
         var msg = new builder.Message(session)
-            .text('Test')
+            .text('Test\nTest')
             .speak('This is a test')
             .addAttachment(card)
             .inputHint(builder.InputHint.acceptingInput);
