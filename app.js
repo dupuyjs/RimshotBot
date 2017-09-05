@@ -27,9 +27,27 @@ server.post('/api/messages', connector.listen());
 // Receive messages from the user and respond by echoing each message back (prefixed with 'You said:')
 var bot = new builder.UniversalBot(connector, function (session) {
 
-    var telemetry = telemetryModule.createTelemetry(session, { setDefault: true });
+    //var telemetry = telemetryModule.createTelemetry(session, { setDefault: true });
 
-    session.send("You said: %s", session.message.text);
+    session.replaceDialog('HelpDialog');
 
-    appInsightsClient.trackTrace('start', telemetry);
+
+    //appInsightsClient.trackTrace('start', telemetry);
 });
+
+bot.dialog('HelpDialog', function (session) {
+    var card = new builder.HeroCard(session)
+        .title('Roller Options')
+            .buttons([
+                builder.CardAction.imBack(session, 'roll some dice', 'Roll Dice'),
+                builder.CardAction.imBack(session, 'play craps', 'Play Craps')
+            ]);
+    
+        var msg = new builder.Message(session)
+            .speak(speak(session, "I'm roller, the dice rolling bot. You can say 'roll some dice' or play one of the games I know how to play."))
+            .addAttachment(card)
+            .inputHint(builder.InputHint.acceptingInput);
+    
+        session.send(msg).endDialog();
+    
+}).triggerAction({ matches: /help/i });
